@@ -2052,7 +2052,7 @@ span.tags-punctuation i {
 }
 @media screen and (max-width: 768px) {
   .post .article-container {
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
   }
 }
 .article-container iframe {
@@ -2112,7 +2112,7 @@ span.tags-punctuation i {
   font-size: 0.9rem;
   line-height: 1.7;
   font-weight: 400;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   text-align: left;
   letter-spacing: 0.6px;
 }
@@ -2180,16 +2180,14 @@ span.tags-punctuation i {
   padding: 0.2em 0.2em 0.2em 1.4em;
 }
 .article-container ul > li:not(.tab):before {
-  margin: 0;
-  top: 0.9em;
-  width: 0.2em;
-  height: 0.2em;
-  border-radius: 50%;
+  top: 0.78em;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 0.42em;
   background: 0 0;
-  content: "";
-  line-height: 0.2em;
   border: 0.21em solid var(--efu-lighttext);
-  background: var(--efu-lighttext);
+  content: "";
+  line-height: 0.42em;
 }
 .article-container ol > li:before {
   margin-top: 0.65em;
@@ -3149,7 +3147,6 @@ span.tags-punctuation i {
   transform: translateY(20px);
   transition: 0.3s;
   max-width: 1400px;
-  min-width: 1000px;
 }
 @media screen and (max-width: 1300px) {
   #console .console-card-group {
@@ -3177,7 +3174,7 @@ span.tags-punctuation i {
   width: 40%;
   height: 100%;
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 900px) {
   #console .console-card-group-left {
     display: none;
   }
@@ -3190,9 +3187,9 @@ span.tags-punctuation i {
   width: 60%;
   overflow: hidden;
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 900px) {
   #console .console-card-group-right {
-    display: none;
+    width: 100%;
   }
 }
 #console .console-card {
@@ -3256,8 +3253,8 @@ span.tags-punctuation i {
   width: fit-content;
 }
 #console .button-group .console-btn-item {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 40px;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -3281,7 +3278,8 @@ span.tags-punctuation i {
   align-items: center;
   justify-content: center;
   color: var(--efu-fontcolor);
-  transition: all 0.3s;
+  transition: 0.3s;
+  box-shadow: var(--efu-shadow-border);
 }
 #console .button-group .console-btn-item span i {
   font-size: 1rem;
@@ -3368,7 +3366,7 @@ span.tags-punctuation i {
   gap: 0.5rem;
 }
 #console .console-card.history .card-archive-list li.card-archive-list-item {
-  flex: 0 1 24.101%;
+  flex: 0 1 calc(25% - 0.375rem);
 }
 #console .console-card.history .card-archive-list .card-archive-list-link {
   border-radius: 8px;
@@ -3557,7 +3555,6 @@ span.tags-punctuation i {
   margin-left: 8px;
 }
 #footer-bar {
-  padding: 1rem;
   color: var(--efu-fontcolor);
   margin-top: 1rem;
   background: var(--efu-secondbg);
@@ -3576,31 +3573,79 @@ span.tags-punctuation i {
   flex-wrap: wrap;
   align-items: center;
   line-height: 1;
+  padding: 1rem 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  #footer-bar .footer-bar-links {
+    justify-content: center;
+    gap: 8px;
+  }
 }
 #footer-bar .footer-bar-left {
   display: flex;
-  flex-wrap: wrap;
-  min-height: 32px;
-  align-items: center;
+  gap: 8px;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  #footer-bar .footer-bar-left {
+    align-items: center;
+  }
 }
 #footer-bar .footer-bar-left .copyright {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 8px;
-  margin: 0 4px;
 }
 #footer-bar .footer-bar-left .copyright .footer-bar-link {
   margin: 0;
+}
+#footer-bar .footer-bar-left .beian-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  #footer-bar .footer-bar-left .beian-group {
+    justify-content: center;
+  }
+}
+#footer-bar .footer-bar-left .beian-group a:hover {
+  background: 0 0;
+  color: var(--efu-main);
+}
+#footer-bar .footer-bar-left .beian-group .beian-icon {
+  height: 14px;
+  min-width: 13px;
+  min-height: 14px;
+}
+#footer-bar .footer-bar-left .beian-group .footer-bar-link {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--efu-secondtext);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 #footer-bar .footer-bar-link {
   margin: 0 4px;
   color: var(--efu-fontcolor);
   font-size: 0.8rem;
-  padding: 8px;
-  border-radius: 12px;
   font-weight: 700;
   white-space: nowrap;
+  padding: 8px;
+  border-radius: 32px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#footer-bar .footer-bar-link .author-avatar {
+  width: 20px;
+  border-radius: 20px;
+  min-height: 20px;
+  min-width: 20px;
 }
 #footer-bar .footer-bar-link.cc {
   margin-right: 0;
@@ -3907,6 +3952,10 @@ span.tags-punctuation i {
     opacity: 1;
     transition: 0.3s;
     line-height: 1;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 @media screen and (min-width: 900px) {
@@ -5618,13 +5667,15 @@ span.tagsPageCount {
     width: 100%;
     padding-bottom: 2rem;
   }
-  #body-wrap.error #error-wrap .error-content .error-info .error_title {
-    font-size: 4rem;
-  }
 }
 #body-wrap.error #error-wrap .error-content .error-info .error_title {
   font-size: 9em;
   line-height: 1;
+}
+@media screen and (max-width: 768px) {
+  #body-wrap.error #error-wrap .error-content .error-info .error_title {
+    font-size: 4rem;
+  }
 }
 #body-wrap.error #error-wrap .error-content .error-info .error_subtitle {
   word-break: break-word;
@@ -5637,12 +5688,12 @@ span.tagsPageCount {
   padding: 0.3rem 1.5rem;
   background: var(--btn-bg);
   color: var(--btn-color);
-  transition: 0.3s;
 }
 #body-wrap.error #error-wrap .error-content .error-info a:hover {
   background: var(--efu-theme);
 }
 #body-wrap.error #error-wrap .error-content .error-info a i {
+  font-size: 16px;
   padding-right: 0.3rem;
 }
 #body-wrap.error .aside-list {
@@ -5655,9 +5706,7 @@ span.tagsPageCount {
 @media screen and (max-width: 768px) {
   #body-wrap.error .aside-list {
     padding-top: 0;
-  }
-  #body-wrap.error .aside-list .aside-list-item .thumbnail {
-    height: 100px;
+    margin: 0;
   }
 }
 #body-wrap.error .aside-list .aside-list-group {
@@ -5683,6 +5732,11 @@ span.tagsPageCount {
   height: 200px;
   background: var(--efu-card-bg);
   display: flex;
+}
+@media screen and (max-width: 768px) {
+  #body-wrap.error .aside-list .aside-list-item .thumbnail {
+    height: 100px;
+  }
 }
 #body-wrap.error .aside-list .aside-list-item .content .title {
   -webkit-line-clamp: 2;
@@ -6541,7 +6595,6 @@ div#banners .bannerText {
 }
 @media screen and (min-width: 1300px) {
   .post #post-info .post-title {
-    width: 1100px;
     font-size: 2.6rem !important;
   }
 }
